@@ -88,7 +88,7 @@ export default function ResumeModal({ isOpen, onClose }) {
         {/* Modal Body: PDF Embed */}
         <div className="flex-1 w-full h-full bg-[#141724] relative overflow-hidden flex flex-col items-center justify-center">
           <iframe
-            src={`${personalData.resumePdf}#toolbar=1&navpanes=0&scrollbar=1&view=FitH`}
+            src={`${personalData.resumePdf}?v=20261122#toolbar=1&navpanes=0&scrollbar=1&view=FitH`}
             title="Keerthiga Chelladurai Resume"
             className="w-full h-full border-0"
           />
@@ -105,3 +105,4 @@ export default function ResumeModal({ isOpen, onClose }) {
     </div>
   );
 }
+
