@@ -9,7 +9,9 @@ import {
   Server, 
   Brain, 
   Cpu, 
-  CheckCircle2 
+  CheckCircle2,
+  School,
+  Sparkles
 } from 'lucide-react';
 import { personalData } from '../config/portfolioData';
 
@@ -32,13 +34,13 @@ export default function About() {
         <div className="flex flex-col items-start mb-14">
           <div className="inline-flex items-center gap-2 font-mono text-xs text-brand-500 dark:text-brand-400 font-semibold uppercase tracking-wider mb-2">
             <span className="w-6 h-[2px] bg-brand-500 rounded-full" />
-            <span>Profile & Background</span>
+            <span>Profile &amp; Background</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             A Little About Me
           </h2>
           <p className="mt-3 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
-            Computer Science undergraduate specializing in Artificial Intelligence & Machine Learning, building practical software systems.
+            Computer Science undergraduate specializing in Artificial Intelligence &amp; Machine Learning, building practical software systems.
           </p>
         </div>
 
@@ -46,55 +48,86 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Left Column: Education Spotlight Card */}
-          <div className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#0f121d] border border-slate-200 dark:border-white/10 shadow-xl shadow-black/5 dark:shadow-none relative overflow-hidden group">
+          <div className="lg:col-span-6 flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#0f121d] border border-slate-200 dark:border-white/10 shadow-xl shadow-black/5 dark:shadow-none relative overflow-hidden group">
             
             {/* Top Accent Gradient Line */}
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-500 via-purple-500 to-electric-400" />
             
             <div className="space-y-6">
               
-              <div className="flex items-center justify-between">
-                <div className="p-3 rounded-2xl bg-brand-500/10 text-brand-500 dark:text-brand-400">
-                  <GraduationCap className="w-7 h-7" />
+              {/* College Degree Showcase */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="p-3 rounded-2xl bg-brand-500/10 text-brand-500 dark:text-brand-400">
+                    <GraduationCap className="w-7 h-7" />
+                  </div>
+                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 dark:text-emerald-400 font-mono font-bold text-xs">
+                    <span>CGPA:</span>
+                    <span className="text-sm">{education.college.score}</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 dark:text-emerald-400 font-mono font-bold text-xs">
-                  <span>CGPA:</span>
-                  <span className="text-sm">{education.cgpa}</span>
+
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold">
+                    Undergraduate Degree
+                  </p>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-1 leading-snug">
+                    {education.college.degree}
+                  </h3>
+                </div>
+
+                <div className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                  <div className="flex items-center gap-2.5">
+                    <BookOpen className="w-4 h-4 text-brand-500 flex-shrink-0" />
+                    <span className="font-semibold text-slate-800 dark:text-slate-200">
+                      {education.college.institution}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-xs text-slate-500 dark:text-slate-400">
+                    <MapPin className="w-3.5 h-3.5 text-brand-500 flex-shrink-0" />
+                    <span>{education.college.location}</span>
+                    <span className="mx-1.5">•</span>
+                    <Calendar className="w-3.5 h-3.5 text-brand-500 flex-shrink-0" />
+                    <span>{education.college.period} (Expected Graduation: {education.college.graduation})</span>
+                  </div>
                 </div>
               </div>
 
-              <div>
-                <p className="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-slate-400 font-semibold">
-                  Education & Degree
+              {/* Schooling Track Record (Direct from Resume) */}
+              <div className="pt-4 border-t border-slate-100 dark:border-white/10 space-y-3">
+                <p className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold flex items-center gap-2">
+                  <School className="w-4 h-4 text-purple-400" />
+                  <span>Schooling &amp; Academic Foundation</span>
                 </p>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-1 leading-snug">
-                  {education.degree}
-                </h3>
-              </div>
 
-              <div className="space-y-3 pt-2 border-t border-slate-100 dark:border-white/5 text-sm text-slate-600 dark:text-slate-300">
-                <div className="flex items-center gap-3">
-                  <BookOpen className="w-4 h-4 text-brand-500 flex-shrink-0" />
-                  <span className="font-semibold text-slate-800 dark:text-slate-200">
-                    {education.institution}
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <MapPin className="w-4 h-4 text-brand-500 flex-shrink-0" />
-                  <span>{education.location}</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Calendar className="w-4 h-4 text-brand-500 flex-shrink-0" />
-                  <span>Expected Graduation: {education.graduation} ({education.period})</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {education.schooling.map((school, sIdx) => (
+                    <div 
+                      key={sIdx}
+                      className="p-3.5 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/5 space-y-1.5"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-slate-900 dark:text-white">
+                          {school.level}
+                        </span>
+                        <span className="font-mono text-xs font-bold text-brand-600 dark:text-brand-300 bg-brand-500/10 px-2 py-0.5 rounded">
+                          {school.score}
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">
+                        {school.institution}
+                      </p>
+                      <p className="text-[10px] text-slate-400 font-mono">
+                        {school.location} • {school.period}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
 
               {/* Highlights checklist */}
-              <div className="pt-4 border-t border-slate-100 dark:border-white/5 space-y-2.5">
-                <p className="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-slate-400 font-semibold">
-                  Academic Highlights
-                </p>
-                {education.highlights.map((item, idx) => (
+              <div className="pt-3 border-t border-slate-100 dark:border-white/5 space-y-2">
+                {education.college.highlights.map((item, idx) => (
                   <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
                     <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
                     <span>{item}</span>
@@ -105,7 +138,7 @@ export default function About() {
             </div>
 
             {/* Bottom Status strip */}
-            <div className="mt-8 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+            <div className="mt-6 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
               <span className="font-mono">Status: Enrolled Full-Time</span>
               <span className="font-mono text-brand-500 font-semibold">AIML Department</span>
             </div>
@@ -113,12 +146,12 @@ export default function About() {
           </div>
 
           {/* Right Column: Engineering Philosophy & Core Pillars */}
-          <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
             
             {/* Story Card */}
             <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#0f121d] border border-slate-200 dark:border-white/10 shadow-xl shadow-black/5 dark:shadow-none space-y-4">
               <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                <span>Passionate About Building & Problem Solving</span>
+                <span>Passionate About Building &amp; Problem Solving</span>
               </h3>
               <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
                 I am a Computer Science and Engineering student specializing in Artificial Intelligence and Machine Learning at KPR Institute of Engineering and Technology.
@@ -126,6 +159,10 @@ export default function About() {
               <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
                 I am passionate about software development, backend engineering, and intelligent applications. I enjoy understanding problems, designing practical solutions, and building applications that create meaningful impact.
               </p>
+              <div className="pt-2 flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
+                <MapPin className="w-4 h-4 text-brand-500" />
+                <span>Hometown: {personalData.location}</span>
+              </div>
             </div>
 
             {/* Interests & Core Pillars Grid */}

@@ -11,9 +11,11 @@ import CodingProfiles from './components/CodingProfiles';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackgroundGlow from './components/BackgroundGlow';
+import ResumeModal from './components/ResumeModal';
 
 export default function App() {
   const [isDark, setIsDark] = useState(true);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   // Initialize theme from localStorage or default to dark
   useEffect(() => {
@@ -51,11 +53,15 @@ export default function App() {
       <BackgroundGlow />
 
       {/* Sticky Glass Navbar */}
-      <Navbar isDark={isDark} toggleTheme={toggleTheme} />
+      <Navbar 
+        isDark={isDark} 
+        toggleTheme={toggleTheme} 
+        onOpenResumeModal={() => setIsResumeModalOpen(true)} 
+      />
 
       {/* Main Content Sections */}
       <main className="relative z-10">
-        <Hero />
+        <Hero onOpenResumeModal={() => setIsResumeModalOpen(true)} />
         <About />
         <Skills />
         <Projects />
@@ -68,6 +74,12 @@ export default function App() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Fullscreen Interactive Resume Viewer Modal */}
+      <ResumeModal 
+        isOpen={isResumeModalOpen} 
+        onClose={() => setIsResumeModalOpen(false)} 
+      />
     </div>
   );
 }

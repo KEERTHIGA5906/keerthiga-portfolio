@@ -7,14 +7,12 @@ import {
   Award, 
   Sparkles, 
   Terminal, 
-  GraduationCap,
-  Code2,
-  ExternalLink,
+  Eye,
   ChevronDown
 } from 'lucide-react';
 import { personalData } from '../config/portfolioData';
 
-export default function Hero() {
+export default function Hero({ onOpenResumeModal }) {
   const handleScrollToProjects = (e) => {
     e.preventDefault();
     const projectsEl = document.getElementById('projects');
@@ -77,7 +75,7 @@ export default function Hero() {
             </p>
 
             {/* Call to Actions & Social Links */}
-            <div className="pt-2 flex flex-wrap items-center gap-4 w-full sm:w-auto">
+            <div className="pt-2 flex flex-wrap items-center gap-3 w-full sm:w-auto">
               
               {/* Primary CTA */}
               <a
@@ -89,20 +87,30 @@ export default function Hero() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
 
-              {/* Secondary CTA */}
+              {/* View Resume in Modal CTA */}
+              <button
+                onClick={onOpenResumeModal}
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm text-brand-600 dark:text-brand-300 bg-brand-500/10 hover:bg-brand-500/20 border border-brand-500/30 transition-all duration-300 active:scale-95 shadow-sm"
+              >
+                <Eye className="w-4 h-4 text-brand-500" />
+                <span>View Resume</span>
+              </button>
+
+              {/* Direct Download Resume CTA */}
               <a
                 href={personalData.resumePdf}
                 download="Keerthiga_Chelladurai_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-700 dark:text-slate-200 bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 hover:border-brand-500/40 hover:bg-slate-50 dark:hover:bg-white/10 shadow-sm transition-all duration-300 active:scale-95"
+                className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl font-semibold text-sm text-slate-700 dark:text-slate-200 bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 hover:border-brand-500/40 hover:bg-slate-50 dark:hover:bg-white/10 shadow-sm transition-all duration-300 active:scale-95"
+                title="Download verified resume PDF"
               >
-                <FileDown className="w-4 h-4 text-brand-500" />
-                <span>Download Resume</span>
+                <FileDown className="w-4 h-4 text-slate-500 dark:text-slate-400" />
+                <span className="hidden sm:inline">PDF</span>
               </a>
 
               {/* Social Quick Links */}
-              <div className="flex items-center gap-2.5 sm:ml-2">
+              <div className="flex items-center gap-2 sm:ml-1">
                 <a
                   href={personalData.socialLinks.github}
                   target="_blank"
@@ -126,18 +134,22 @@ export default function Hero() {
             </div>
 
             {/* Quick Metrics Bar */}
-            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200 dark:border-white/10 w-full max-w-lg">
+            <div className="grid grid-cols-4 gap-3 pt-6 border-t border-slate-200 dark:border-white/10 w-full max-w-xl">
               <div>
-                <p className="text-2xl font-bold font-mono text-slate-900 dark:text-white">9.32</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">B.E. CGPA</p>
+                <p className="text-xl sm:text-2xl font-bold font-mono text-slate-900 dark:text-white">9.32</p>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">B.E. CGPA</p>
               </div>
               <div>
-                <p className="text-2xl font-bold font-mono text-brand-500 dark:text-brand-400">1000+</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Problems Solved</p>
+                <p className="text-xl sm:text-2xl font-bold font-mono text-purple-600 dark:text-purple-400">97%</p>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">HSC Score</p>
               </div>
               <div>
-                <p className="text-2xl font-bold font-mono text-electric-500 dark:text-electric-400">₹50K</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Hackathon Award</p>
+                <p className="text-xl sm:text-2xl font-bold font-mono text-brand-500 dark:text-brand-400">1000+</p>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Problems Solved</p>
+              </div>
+              <div>
+                <p className="text-xl sm:text-2xl font-bold font-mono text-electric-500 dark:text-electric-400">₹50K</p>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">KONE Winner</p>
               </div>
             </div>
 
@@ -160,7 +172,6 @@ export default function Hero() {
                     alt={personalData.name}
                     className="w-full h-full object-cover object-top filter brightness-[0.98] contrast-[1.03] hover:scale-105 transition-transform duration-700 ease-out"
                     onError={(e) => {
-                      // Fallback if primary image fails
                       e.currentTarget.src = personalData.profileFallback;
                     }}
                   />
@@ -171,10 +182,10 @@ export default function Hero() {
                   {/* Internal badge on photo */}
                   <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-slate-900/80 backdrop-blur-md border border-white/10 text-white">
                     <p className="text-xs font-mono text-brand-400 font-semibold uppercase tracking-wider">
-                      Student & Developer
+                      Student &amp; Developer
                     </p>
                     <p className="text-sm font-semibold text-slate-100">
-                      KPR Institute of Engg & Tech
+                      KPR Institute of Engg &amp; Tech
                     </p>
                   </div>
                 </div>
@@ -206,7 +217,7 @@ export default function Hero() {
                     Class of 2028
                   </p>
                   <p className="text-xs font-bold text-slate-900 dark:text-white">
-                    B.E. CSE (AI & ML)
+                    B.E. CSE (AI &amp; ML)
                   </p>
                 </div>
               </div>

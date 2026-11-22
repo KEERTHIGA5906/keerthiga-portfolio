@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, FileDown, Sparkles, Terminal } from 'lucide-react';
+import { Menu, X, Sun, Moon, FileDown, Eye, Terminal } from 'lucide-react';
 import { personalData } from '../config/portfolioData';
 
 const navItems = [
@@ -12,7 +12,7 @@ const navItems = [
   { name: 'Contact', href: '#contact' },
 ];
 
-export default function Navbar({ isDark, toggleTheme }) {
+export default function Navbar({ isDark, toggleTheme, onOpenResumeModal }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -56,9 +56,9 @@ export default function Navbar({ isDark, toggleTheme }) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#08090E]/80 dark:bg-[#08090E]/85 bg-white/80 backdrop-blur-xl border-b border-white/10 dark:border-white/10 border-slate-200/80 shadow-lg shadow-black/10'
+          ? 'bg-white/85 dark:bg-[#08090E]/85 backdrop-blur-xl border-b border-slate-200/80 dark:border-white/10 shadow-lg shadow-black/5 dark:shadow-black/20'
           : 'bg-transparent py-2'
       }`}
     >
@@ -89,7 +89,7 @@ export default function Navbar({ isDark, toggleTheme }) {
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-1 p-1.5 rounded-full border border-white/10 dark:border-white/10 border-slate-200 bg-white/50 dark:bg-slate-900/40 backdrop-blur-md">
+          <nav className="hidden lg:flex items-center space-x-1 p-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-slate-900/40 backdrop-blur-md">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
               return (
@@ -115,7 +115,7 @@ export default function Navbar({ isDark, toggleTheme }) {
             <button
               onClick={toggleTheme}
               aria-label="Toggle Theme"
-              className="p-2.5 rounded-xl border border-white/10 dark:border-white/10 border-slate-200 bg-white/60 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 hover:border-brand-500/30 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500/40"
+              className="p-2.5 rounded-xl border border-slate-200 dark:border-white/10 bg-white/60 dark:bg-white/5 text-slate-700 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 hover:border-brand-500/30 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500/40"
             >
               {isDark ? (
                 <Sun className="w-4 h-4 text-amber-400 animate-spin-slow" />
@@ -124,23 +124,20 @@ export default function Navbar({ isDark, toggleTheme }) {
               )}
             </button>
 
-            {/* Quick Resume Button */}
-            <a
-              href={personalData.resumePdf}
-              download="Keerthiga_Chelladurai_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            {/* View Resume Button */}
+            <button
+              onClick={onOpenResumeModal}
               className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-brand-600 to-electric-500 hover:from-brand-500 hover:to-electric-400 text-white shadow-md shadow-brand-500/20 hover:shadow-glow-violet transition-all duration-300 transform active:scale-95"
             >
-              <FileDown className="w-3.5 h-3.5" />
+              <Eye className="w-3.5 h-3.5" />
               <span>Resume</span>
-            </a>
+            </button>
 
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Navigation Menu"
-              className="lg:hidden p-2.5 rounded-xl border border-white/10 dark:border-white/10 border-slate-200 bg-white/60 dark:bg-white/5 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
+              className="lg:hidden p-2.5 rounded-xl border border-slate-200 dark:border-white/10 bg-white/60 dark:bg-white/5 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -151,7 +148,7 @@ export default function Navbar({ isDark, toggleTheme }) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0a0c14]/95 dark:bg-[#0a0c14]/98 bg-white/95 backdrop-blur-2xl border-b border-white/10 dark:border-white/10 border-slate-200 px-6 pt-4 pb-6 space-y-2 animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="lg:hidden bg-white/95 dark:bg-[#0a0c14]/98 backdrop-blur-2xl border-b border-slate-200 dark:border-white/10 px-6 pt-4 pb-6 space-y-2 animate-in fade-in slide-in-from-top-4 duration-200">
           <div className="flex flex-col space-y-1">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
@@ -172,17 +169,17 @@ export default function Navbar({ isDark, toggleTheme }) {
             })}
           </div>
 
-          <div className="pt-4 border-t border-white/10 dark:border-white/10 border-slate-200 flex flex-col gap-2">
-            <a
-              href={personalData.resumePdf}
-              download="Keerthiga_Chelladurai_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+          <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex flex-col gap-2">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenResumeModal();
+              }}
               className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-brand-600 to-electric-500 text-white shadow-md shadow-brand-500/25"
             >
-              <FileDown className="w-4 h-4" />
-              <span>Download Resume</span>
-            </a>
+              <Eye className="w-4 h-4" />
+              <span>View Official Resume</span>
+            </button>
           </div>
         </div>
       )}

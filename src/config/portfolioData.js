@@ -1,6 +1,6 @@
 /**
  * Centralized Personal & Portfolio Configuration
- * Update any link, project, certificate, or contact info here.
+ * Synchronized with Keerthiga Chelladurai's verified 2026 Resume
  */
 
 export const personalData = {
@@ -14,26 +14,50 @@ export const personalData = {
   availability: "Open to Software Engineering Opportunities",
   email: "keerthigachelladurai@gmail.com",
   phone: "+91 9597127292",
-  location: "Coimbatore, Tamil Nadu, India",
+  location: "Dindigul - 624219, Tamil Nadu, India",
+  collegeCity: "Coimbatore, Tamil Nadu",
   
   // Asset paths in /public
   profilePhoto: "/profile.jpg",
   profileFallback: "/profile2.png",
   resumePdf: "/Keerthiga_Resume.pdf",
 
-  // Education Details
+  // Education Details (Direct from Resume)
   education: {
-    degree: "B.E. Computer Science and Engineering (Artificial Intelligence and Machine Learning)",
-    shortDegree: "B.E. CSE (AI & ML)",
-    institution: "KPR Institute of Engineering and Technology",
-    location: "Coimbatore, Tamil Nadu",
-    period: "2024 – 2028",
-    graduation: "2028",
-    cgpa: "9.32",
-    highlights: [
-      "Consistent Academic Excellence with 9.32 CGPA",
-      "Specialization in Artificial Intelligence and Machine Learning",
-      "Active participant in technical symposiums and competitive programming"
+    college: {
+      degree: "Bachelor of Computer Science Engineering (Artificial Intelligence and Machine Learning)",
+      shortDegree: "B.E. CSE (AI & ML)",
+      institution: "KPR Institute of Engineering and Technology",
+      location: "Coimbatore, Tamil Nadu",
+      period: "2024 – 2028",
+      graduation: "2028",
+      scoreType: "CGPA",
+      score: "9.32",
+      highlights: [
+        "Consistent Academic Excellence with 9.32 CGPA",
+        "Department of Computer Science (AI & ML Specialization)",
+        "KONE ELEVATE '26 National Hackathon Winner"
+      ]
+    },
+    schooling: [
+      {
+        level: "Higher Secondary (HSC)",
+        institution: "Thaai Matric Higher Secondary School",
+        location: "Vadipatti, Madurai",
+        period: "2023 – 2024",
+        scoreType: "Percentage",
+        score: "97%",
+        badge: "State Board Top Tier"
+      },
+      {
+        level: "Secondary School (SSLC)",
+        institution: "Thaai Matric Higher Secondary School",
+        location: "Vadipatti, Madurai",
+        period: "2021 – 2022",
+        scoreType: "Percentage",
+        score: "92.6%",
+        badge: "Academic Distinction"
+      }
     ]
   },
 
@@ -43,7 +67,7 @@ export const personalData = {
     linkedin: "https://www.linkedin.com/in/keerthiga-chelladurai-4b9095328/",
     leetcode: "https://leetcode.com/u/Keerthiga59/",
     hackerrank: "https://www.hackerrank.com/profile/Keerthi_59",
-    codechef: "https://www.codechef.com/users/keerthi_59" // fallback placeholder route in config
+    codechef: "https://www.codechef.com"
   },
 
   // Focus areas for About Me
@@ -63,47 +87,46 @@ export const skillsData = {
     { name: "C", category: "Systems", tag: "Foundations", icon: "Binary" }
   ],
   webDevelopment: [
-    { name: "HTML5", category: "Frontend", tag: "Semantic markup", icon: "FileCode" },
-    { name: "CSS3", category: "Frontend", tag: "Responsive & Modern", icon: "Palette" },
-    { name: "JavaScript", category: "Frontend / Full-Stack", tag: "ES6+, DOM, Async", icon: "Sparkles" },
-    { name: "Flask", category: "Backend", tag: "Microservices & APIs", icon: "Server" }
+    { name: "HTML", category: "Frontend", tag: "Semantic Markup", icon: "FileCode" },
+    { name: "CSS", category: "Frontend", tag: "Responsive Styling", icon: "Palette" },
+    { name: "JavaScript", category: "Frontend", tag: "ES6+, DOM, Async", icon: "Sparkles" },
+    { name: "Flask", category: "Backend", tag: "Python Web Framework", icon: "Server" }
   ],
   databases: [
-    { name: "SQL", category: "Querying", tag: "Relational queries", icon: "Database" },
-    { name: "MySQL", category: "RDBMS", tag: "Data Modeling & ACID", icon: "Layers" }
+    { name: "SQL", category: "Querying", tag: "Relational Queries", icon: "Database" },
+    { name: "MySQL", category: "RDBMS", tag: "Data Modeling & Integration", icon: "Layers" }
   ],
   machineLearning: [
-    { name: "Scikit-learn", category: "ML Library", tag: "Classification & Reg.", icon: "Brain" },
+    { name: "Scikit-learn", category: "ML Library", tag: "Classification & Analysis", icon: "Brain" },
     { name: "Pandas", category: "Data Analysis", tag: "Data Wrangling", icon: "Table" },
-    { name: "NumPy", category: "Math & Tensors", tag: "Vectorized Ops", icon: "Cpu" }
+    { name: "NumPy", category: "Math & Tensors", tag: "Vectorized Operations", icon: "Cpu" }
   ],
   tools: [
-    { name: "GitHub", category: "Version Control", tag: "CI/CD & Collaboration", icon: "GitBranch" },
-    { name: "VS Code", category: "IDE", tag: "Development Environment", icon: "Terminal" },
+    { name: "GitHub", category: "Version Control", tag: "Collaboration & Code", icon: "GitBranch" },
+    { name: "VS Code", category: "IDE", tag: "Primary Development Env", icon: "Terminal" },
     { name: "Figma", category: "Design", tag: "UI/UX & Wireframing", icon: "Layout" },
-    { name: "XAMPP", category: "Server Stack", tag: "Apache & MariaDB", icon: "HardDrive" },
-    { name: "phpMyAdmin", category: "DB Management", tag: "Web Administration", icon: "Sliders" }
+    { name: "XAMPP", category: "Server Stack", tag: "Local Web Server Stack", icon: "HardDrive" },
+    { name: "phpMyAdmin", category: "DB Management", tag: "MySQL Administration", icon: "Sliders" }
   ]
 };
 
 export const projectsData = [
   {
     id: "kuberix",
-    title: "Kuberix – Expense Tracker",
+    title: "KUBERIX Expense Tracker Website",
     category: "Web Application",
     badge: "Personal Finance",
     featured: true,
     description:
-      "A comprehensive web-based expense tracking application engineered to help users record, manage, and analyze daily expenditures with interactive visual summaries and offline data persistence.",
+      "A web-based expense tracking application that allows users to record, manage, and analyze daily expenditures with visual statistics and offline persistence.",
     highlights: [
-      "Add, edit, categorize, and delete daily income & expense transactions",
-      "Zero-latency offline data persistence powered by browser Local Storage",
-      "Dynamic expense statistics and visual distribution charts using Chart.js",
-      "Responsive, clean UI with actionable monthly spending breakdowns"
+      "Built an expense tracker website that allows users to record and manage daily expenses",
+      "Implemented Local Storage to store data offline without a backend database",
+      "Used Chart.js for visualizing dynamic expense statistics and financial summaries"
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Local Storage", "Chart.js"],
-    githubUrl: "https://github.com/KEERTHIGA5906/kuberix-expense-tracker", // Configurable link
-    liveDemoUrl: "https://keerthiga5906.github.io/kuberix-expense-tracker", // Configurable demo
+    githubUrl: "https://github.com/KEERTHIGA5906",
+    liveDemoUrl: null,
     color: "from-blue-500/20 to-cyan-500/10",
     accentColor: "#38bdf8",
     image: "kuberix"
@@ -115,15 +138,14 @@ export const projectsData = [
     badge: "HealthTech AI",
     featured: true,
     description:
-      "A machine learning-powered mobile health application that predicts human stress levels from daily physiological indicators and lifestyle variables.",
+      "A machine learning-powered mobile health application that predicts human stress levels based on user lifestyle variables and physiological inputs.",
     highlights: [
-      "Captures lifestyle metrics including sleep duration, mood indicators, and heart rate",
-      "Trained ML pipeline with Scikit-learn, Pandas, and NumPy for multi-variable classification",
-      "Classifies stress state into distinct actionable tiers: Low, Medium, and High",
-      "Intuitive, cross-platform mobile client developed with Flutter"
+      "Developed a stress level prediction mobile app using Flutter to collect inputs like sleep hours, mood, and heart rate from users",
+      "Implemented a machine learning model in Python using scikit-learn to analyze the data and classify stress levels (Low, Medium, High)",
+      "Processed feature datasets using Pandas and NumPy for accurate classification pipeline"
     ],
     technologies: ["Flutter", "Python", "Scikit-learn", "Pandas", "NumPy"],
-    githubUrl: "https://github.com/KEERTHIGA5906/stress-level-prediction", // Configurable link
+    githubUrl: "https://github.com/KEERTHIGA5906",
     liveDemoUrl: null,
     color: "from-purple-500/20 to-pink-500/10",
     accentColor: "#a855f7",
@@ -132,19 +154,18 @@ export const projectsData = [
   {
     id: "smart-eventsphere",
     title: "Smart EventSphere",
-    category: "Full-Stack Campus Platform",
+    category: "Campus Web Platform",
     badge: "Infosys Springboard",
     featured: true,
     description:
-      "A full-fledged campus event registration and lifecycle management platform developed during Infosys Springboard Virtual Internship 7.0 for universities and student bodies.",
+      "A campus event registration and lifecycle management platform developed during the Infosys Springboard Virtual Internship 7.0.",
     highlights: [
-      "End-to-end campus event scheduling, publishing, and attendee registration system",
-      "Robust frontend integration with backend RESTful API endpoints",
-      "Structured data management and event attendee verification workflow",
-      "Built adhering to enterprise-level software engineering and documentation standards"
+      "Developed Smart EventSphere, a web-based campus event registration and management platform",
+      "Integrated frontend interfaces with backend APIs for structured data management",
+      "Applied software development practices to build a structured and user-friendly application"
     ],
-    technologies: ["JavaScript", "HTML5", "CSS3", "REST APIs", "SQL"],
-    githubUrl: "https://github.com/KEERTHIGA5906/smart-eventsphere", // Configurable link
+    technologies: ["HTML", "CSS", "JavaScript", "REST APIs", "SQL"],
+    githubUrl: "https://github.com/KEERTHIGA5906",
     liveDemoUrl: null,
     color: "from-emerald-500/20 to-teal-500/10",
     accentColor: "#10b981",
@@ -157,15 +178,14 @@ export const projectsData = [
     badge: "KICE Internship",
     featured: true,
     description:
-      "A centralized student information system engineered during a Backend Development Internship at KICE Infosystems featuring complete database-backed CRUD functionality.",
+      "A secure student records management system engineered during the Backend Development Internship at KICE Infosystems.",
     highlights: [
-      "Comprehensive student record management, course allocations, and grading records",
-      "Full CRUD operations implemented using Python Flask routing and template rendering",
-      "Reliable relational schema design and SQL query integration with MySQL database",
-      "Data validation and administrative controls for student record modifications"
+      "Developed web applications using Python, Flask, and MySQL",
+      "Implemented complete CRUD operations for a Student Management System with secure MySQL database integration",
+      "Worked with SQL queries, database connectivity, and responsive web application development"
     ],
     technologies: ["Python", "Flask", "MySQL", "HTML", "CSS"],
-    githubUrl: "https://github.com/KEERTHIGA5906/student-management-system", // Configurable link
+    githubUrl: "https://github.com/KEERTHIGA5906",
     liveDemoUrl: null,
     color: "from-amber-500/20 to-orange-500/10",
     accentColor: "#f59e0b",
@@ -178,55 +198,54 @@ export const experienceData = [
     id: "kice",
     company: "KICE Infosystems",
     role: "Backend Development Intern",
-    period: "June 2026",
-    duration: "1 Month Intensive",
-    type: "Internship",
+    period: "06 Jun 2026 – 20 Jun 2026",
+    duration: "Intensive Internship",
+    type: "Backend Internship",
     location: "Onsite",
     color: "border-purple-500/40 text-purple-400",
     description:
-      "Focused on building database-driven backend web services and foundational CRUD business logic.",
+      "Engineered backend web applications, database integrations, and CRUD services using Python and Flask.",
     contributions: [
-      "Developed web applications using Python, Flask framework, and MySQL database.",
-      "Implemented comprehensive CRUD operations for an enterprise Student Management System.",
-      "Crafted optimized SQL queries, foreign key schemas, and seamless database connectivity."
+      "Developed web applications using Python, Flask, and MySQL.",
+      "Implemented complete CRUD operations for a Student Management System with secure MySQL database integration.",
+      "Worked with SQL queries, database connectivity, and responsive web application development."
     ],
-    skills: ["Python", "Flask", "MySQL", "Database Architecture", "CRUD APIs"]
+    skills: ["Python", "Flask", "MySQL", "SQL Queries", "Database Connectivity", "CRUD Operations"]
   },
   {
     id: "infosys",
     company: "Infosys Springboard",
     role: "Virtual Intern – Internship 7.0",
-    period: "July 2026 – September 2026",
-    duration: "3 Months",
+    period: "July 2026 – Sept 2026",
+    duration: "3 Months Virtual Program",
     type: "Virtual Internship",
     location: "Remote",
     color: "border-blue-500/40 text-blue-400",
     description:
-      "Collaborated on modern web platforms and enterprise engineering practices as part of Infosys Springboard 7.0.",
+      "Collaborated on modern campus web platform architecture adhering to software engineering best practices.",
     contributions: [
-      "Developed 'Smart EventSphere', an end-to-end campus event registration platform.",
-      "Integrated responsive client-side interfaces with backend APIs and structured databases.",
-      "Applied industry-grade software development practices, version control, and modular architecture."
+      "Developed Smart EventSphere, a web-based campus event registration and management platform.",
+      "Integrated frontend interfaces with backend APIs for data management.",
+      "Applied software development practices to build a structured and user-friendly application."
     ],
-    skills: ["Full-Stack Dev", "REST APIs", "JavaScript", "Event Architecture", "Git"]
+    skills: ["Web Development", "API Integration", "Data Management", "Software Practices", "Event Systems"]
   },
   {
     id: "webgapp",
     company: "WebGapp, Madurai",
     role: "Web Designing Intern",
-    period: "December 2025 – January 2026",
+    period: "Dec 2025 – Jan 2026",
     duration: "2 Months",
-    type: "Internship",
+    type: "Design & Frontend Internship",
     location: "Madurai, Tamil Nadu",
     color: "border-emerald-500/40 text-emerald-400",
     description:
-      "Designed client-facing responsive web interfaces and elevated UX/UI layout standards.",
+      "Designed responsive client-facing web layouts, improving visual aesthetics and user experience.",
     contributions: [
-      "Designed responsive, cross-browser compatible web pages using semantic HTML and modern CSS.",
-      "Improved website layouts, visual hierarchy, and interaction design for client projects.",
-      "Contributed to mobile-first responsive website development and usability improvements."
+      "Designed and maintained responsive web pages using HTML and CSS.",
+      "Applied responsive web design principles to improve website layout and user experience."
     ],
-    skills: ["HTML5", "CSS3", "Responsive UI", "UI/UX Layouts", "Client Projects"]
+    skills: ["HTML", "CSS", "Responsive Web Design", "UX Optimization", "Layout Systems"]
   }
 ];
 
@@ -286,7 +305,7 @@ export const certificationsData = [
     issuer: "Amazon Web Services",
     topics: ["EC2 Computing", "Route 53 DNS", "Application Load Balancer", "Cloud Architecture"],
     verified: true,
-    link: null // Configurable external verification link
+    link: null
   },
   {
     id: "iit-bombay",
